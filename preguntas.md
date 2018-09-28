@@ -17,3 +17,6 @@ Para listar el contenido dentro del contenedor.
 
 ### ¿Cuál es la diferencia entre docker ps y docker ps -a?
 Con docker ps lista todos los contenedores que están encendidos y docker ps -a lista todos los contenedores que se crearon. 
+
+### Comando para ejecutar el contenedor
+docker run -it orbis-training-docker:0.3.0 bash
