@@ -1,4 +1,4 @@
-FROM node:10.10.0-slim
+FROM nginx:alpine
 LABEL maintainer="janet.huacahuasi.garcia@gmail.com"
 WORkDIR /app
-COPY ./preguntas.md ./
+COPY ./preguntas.md ./intro.md ./
