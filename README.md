@@ -36,5 +36,19 @@
 
 ### Se debe comentar la línea en el dockerfile
 ```javascript
-  #COPY ./preguntas.md ./intro.md ./1
+  #COPY ./preguntas.md ./intro.md ./
 ```
+### Exponer los puertos 3030 y 35729 en la imagen de docker
+```javascript
+  docker run -p "1042:3030" -p "35729:35729" -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0 npm start 
+```
+### Nuevo puerto asignado.
+```javascript
+  http://localhost:1042/#1
+```
+
+### Usando la imagen de docker, ejecutar npm run release
+```javascript
+  docker run -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0 npm run release
+```
+
