@@ -23,3 +23,18 @@
 ```javascript
   docker-compose up
 ```
+
+### Comando para crear el volumen y especificar el directorio de trabajo
+```javascript
+  docker run -v $PWD/:/app -w /app kathia/orbis-training-docker:2.0.0 ls
+```
+
+### Se debe buildar la image
+```javascript
+  docker build -t orbis-training-docker:2.0.0 .
+```
+
+### Se debe comentar la línea en el dockerfile
+```javascript
+  #COPY ./preguntas.md ./intro.md ./1
+```
