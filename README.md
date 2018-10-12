@@ -52,3 +52,28 @@
   docker run -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0 npm run release
 ```
 
+### Creando una nueva red e identifico el nombre y le cambió de nombre
+```javascript
+  - docker run -it --network=ale node:10.10.0-slim curl http://localhost:1042/
+  - docker run --name preguntas --network=ale -p "1042:3030" -p "35729:35729" -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0  npm start
+  - docker run -it --network=ale node:10.10.0-slim curl preguntas:3030 
+```
+
+### Dar permiso al archivo
+```javascript
+  sudo chmod 0775 -R example.sh
+```
+
+### Mostrar contenido del archivo .sh
+```javascript
+  docker run -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0 ./example.sh
+```
+
+### Agregar una variable y pasar esa varible en el npm run
+```javascript
+docker run -e "name=Kathia" -v $PWD:/app -w /app kathia/orbis-training-docker:2.0.0 ./example.sh
+```
+### Mostrar en la console mensaje
+```javascript
+docker run -it --entrypoint=/bin/echo kathia/orbis-training-docker:2.0.0 Ejecutando contenedor
+```
