@@ -2,10 +2,6 @@
 
 pipeline {
   agent any
-  options {
-    skipDefaultCheckout true
-    ansiColor('xterm')
-  }
   stages {
     stage('Build') {
       steps {
