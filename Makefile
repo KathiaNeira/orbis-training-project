@@ -1,21 +1,22 @@
-include Makefile-task.mk
+include makefiles/task.mk
+include makefiles/deploy-ghpages.mk
 
-NAME_IMAGE = orbis-training-docker
+NAME_IMAGE = kathia/orbis-training-docker
 DOCKER_TAG = 2.0.0
 DOCKER_IMAGE = $(NAME_IMAGE):$(DOCKER_TAG)
 NAME ?= kathia
 
-install: 
-	npm install
+install:
+	docker run -v $(PWD):/app -w /app $(DOCKER_IMAGE) npm install
 
-start: 
-	npm start
+start:
+	docker run -v $(PWD):/app -w /app -p 3030:3030 -p 35729:35729 $(DOCKER_IMAGE) npm start
 
-release: 
-	npm run
+release:
+	docker run -v $(PWD):/app -w /app $(DOCKER_IMAGE) npm run release
 
-greed:
-	docker run -v $(PWD)/:/app -w /app/resources -e "name=$(NAME)" kathia/$(DOCKER_IMAGE) ./example.sh
+greet:
+	docker run -v $(PWD):/app -w /app $(DOCKER_IMAGE) sh resources/example.sh ${NAME}
 
 recursos:
-	@echo 'Hola recursos!'
+	echo 'Hola recursos!'
