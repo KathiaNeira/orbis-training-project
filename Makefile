@@ -10,7 +10,7 @@ install:
 	docker run --volumes-from workspace -w /app $(DOCKER_IMAGE) npm install
 
 start:
-	docker run --volumes-from workspace -w /app -p 3030:3030 -p 35729:35729 $(DOCKER_IMAGE) npm start
+	docker run -d --volumes-from workspace -w /app -p 3030:3030 -p 35729:35729 $(DOCKER_IMAGE) npm start
 
 release:
 	docker run --volumes-from workspace -w /app $(DOCKER_IMAGE) npm run release
