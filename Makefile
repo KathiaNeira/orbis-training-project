@@ -14,6 +14,7 @@ start:
 
 release:
 	docker run --volumes-from workspace -w /app $(DOCKER_IMAGE) npm run release
+	docker cp workspace:/app/ ./
 
 greet:
 	docker run --volumes-from workspace -w /app $(DOCKER_IMAGE) sh resources/example.sh ${NAME}
