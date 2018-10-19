@@ -3,7 +3,7 @@ DEPLOY_DIR = deploy
 BUILD_DIR = build
 GIT_BRANCH = gh-pages
 GIT_PERSONAL_TOKEN = d01eef4c54911e726915f042b70127c85340903f
-GIT_BRANCH_DIR = $(DEPLOY_DIR)/$(GIT_BRANCH)
+GIT_BRANCH_DIR = $(PWD)/$(DEPLOY_DIR)/$(GIT_BRANCH)
 
 deploy.ghpages:
 	@$(call mkdir_deploy_dir)
@@ -19,7 +19,7 @@ deploy.ghpages:
 	@$(call show_deploy_url)
 
 define mkdir_deploy_dir
-    @if [ ! -d "$(GIT_BRANCH_DIR)" ]; then mkdir $(GIT_BRANCH_DIR); fi
+    @if [ ! -d "$(GIT_BRANCH_DIR)" ]; then mkdir -p $(GIT_BRANCH_DIR); fi
 endef
 
 define git_init
